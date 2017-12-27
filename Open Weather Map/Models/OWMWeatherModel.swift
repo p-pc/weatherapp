@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Comment : coding not added - data will be fetched always
 class OWMWeatherModel: NSObject {
 
     var coord_lon : String = "NA"

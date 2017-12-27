@@ -22,6 +22,7 @@ class OWMCityListModel: NSObject, NSCoding {
         
         guard let status = jsonData["status"] as? String else {return}
         
+        //Comment : response status handled only for "OK" - other statuses are not handled
         if status != "OK" {
             return
         }
@@ -46,6 +47,7 @@ class OWMCityListModel: NSObject, NSCoding {
         }
     }
     
+    //Comment : coding added for saving the model for recent searches
     required convenience init?(coder decoder: NSCoder){
         self.init()
         self.cityList = decoder.decodeObject(forKey: "cityList") as! Array<OWMCityItemModel>
@@ -77,6 +79,7 @@ class OWMCityItemModel: NSObject, NSCoding {
         
     }
     
+    //Comment : coding added for saving the model for recent searches
     required convenience init?(coder decoder: NSCoder){
         self.init()
         self.cityName = decoder.decodeObject(forKey: "cityName") as! String

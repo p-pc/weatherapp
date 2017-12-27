@@ -46,6 +46,7 @@ class OWMCityWeatherViewController: UIViewController {
         
         self.title = city.cityName
         
+        //Comment : fetch data for selected city automatically - not archived as it needs to be fresh always
         self.refreshDataForCity()
 
     }
@@ -58,6 +59,7 @@ class OWMCityWeatherViewController: UIViewController {
     
     func refreshDataForCity() {
         
+        //Comment : check network status and return if data unavailable
         if !Reachability.forInternetConnection().isReachable() {
             
             let alert = UIAlertController(title: "", message: "Please connect to internet", preferredStyle: UIAlertControllerStyle.alert)
@@ -113,6 +115,7 @@ class OWMCityWeatherViewController: UIViewController {
                     
                     DispatchQueue.main.async {
                         
+                        //Comment : alert the user and return to previous screen
                         self.navigationController?.popViewController(animated: true)
                         
                     }
@@ -153,9 +156,10 @@ class OWMCityWeatherViewController: UIViewController {
     
     func refreshData() {
         
-        //refresh view data
+        //Comment : very crude handling of UI refresh - can be made as a scrollable view with more presentable data
         if let data = self.weatherData {
-            //set values to UI components
+            
+            //Comment : handle UI refreshes in main thread to ensure proper UI updates
             DispatchQueue.main.async {
                 
                 self.lblWeatherMain.text = "Weather : \(data.weather_main)"
@@ -189,8 +193,10 @@ class OWMCityWeatherViewController: UIViewController {
     
     func updateImageWith(icon : String) {
         
+        //Comment : used status bar indicator for time being - can have an activity indicator in UI too
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
 
+        //Comment : Images can be cached using cachae managers like Kingfisher - so same images don't get downloaded again and picked from cache
         OWMServiceManager.sharedInstance.getImageDataFor(icon: icon, completion: { error, data in
             
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -208,7 +214,7 @@ class OWMCityWeatherViewController: UIViewController {
 
             func onFailure(error: Error) {
                 
-                //do nothing - leave the default image
+                //Comment : do nothing - leave the default image
             }
 
             if let err = error {

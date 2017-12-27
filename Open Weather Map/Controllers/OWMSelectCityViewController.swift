@@ -22,6 +22,7 @@ class OWMSelectCityViewController: UIViewController {
         
         super.viewDidLoad()
 
+        //Comment : load recent searches from archived data sorted by time - automatically try to find weather for most recently viewed
         self.loadLastCity()
         
     }
@@ -89,6 +90,7 @@ extension OWMSelectCityViewController : UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchTextRaw: String) {
         
+        //Comment : check for network connection and continue only when data is available
         if !Reachability.forInternetConnection().isReachable() {
             
             let alert = UIAlertController(title: "", message: "Please connect to internet", preferredStyle: UIAlertControllerStyle.alert)
@@ -107,6 +109,7 @@ extension OWMSelectCityViewController : UISearchBarDelegate {
 
         }
         
+        //Comment : ignore non alphabetical and space chars
         let charSet : NSMutableCharacterSet = NSMutableCharacterSet()
         charSet.formUnion(with: CharacterSet.uppercaseLetters)
         charSet.formUnion(with: CharacterSet.lowercaseLetters)
@@ -161,6 +164,7 @@ extension OWMSelectCityViewController : UISearchBarDelegate {
 
                     self.refreshData()
 
+                    //Comment : alert the user when something fails
                     self.present(alert, animated: true, completion: nil)
                 }
                 

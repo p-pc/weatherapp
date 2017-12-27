@@ -44,11 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1CB69D1694E65DE4F6B2DFE4 /* Pods-Open Weather MapUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Open Weather MapUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Open Weather MapUITests/Pods-Open Weather MapUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A21315563525FF52E30AF610 /* Pods-Open Weather Map.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Open Weather Map.release.xcconfig"; path = "Pods/Target Support Files/Pods-Open Weather Map/Pods-Open Weather Map.release.xcconfig"; sourceTree = "<group>"; };
 		BF50D5F61EAE2C56C01201AB /* Pods-Open Weather MapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Open Weather MapTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Open Weather MapTests/Pods-Open Weather MapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF94D0E5B64BF7184375FC19 /* Pods-Open Weather MapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Open Weather MapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Open Weather MapTests/Pods-Open Weather MapTests.release.xcconfig"; sourceTree = "<group>"; };
-		D7D67B770DEB104DD3DCC071 /* Pods-Open Weather MapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Open Weather MapUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Open Weather MapUITests/Pods-Open Weather MapUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DECCC822822142F7FDBEAEF9 /* Pods_Open_Weather_Map.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Open_Weather_Map.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E75D7470EFFD3C5725869207 /* Pods-Open Weather Map.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Open Weather Map.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Open Weather Map/Pods-Open Weather Map.debug.xcconfig"; sourceTree = "<group>"; };
 		EFE3E41C1FF314F500222F31 /* Open Weather Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Open Weather Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,8 +100,6 @@
 				A21315563525FF52E30AF610 /* Pods-Open Weather Map.release.xcconfig */,
 				BF50D5F61EAE2C56C01201AB /* Pods-Open Weather MapTests.debug.xcconfig */,
 				CF94D0E5B64BF7184375FC19 /* Pods-Open Weather MapTests.release.xcconfig */,
-				1CB69D1694E65DE4F6B2DFE4 /* Pods-Open Weather MapUITests.debug.xcconfig */,
-				D7D67B770DEB104DD3DCC071 /* Pods-Open Weather MapUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";

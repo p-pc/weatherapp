@@ -9,6 +9,8 @@
 import XCTest
 @testable import Open_Weather_Map
 
+//Comment : for time being - only Unit tests are added - UI tests are not added
+
 class Open_Weather_MapTests: XCTestCase {
     
     override func setUp() {
@@ -51,7 +53,6 @@ class Open_Weather_MapTests: XCTestCase {
     func testAPI() {
         
         //Comment : new - succeeds ; blahblahblah - fails -- we could setup a test database and iterate through multiple search texts here and log all results
-        //Comment : for time being - only Unit tests are added - UI tests are not added
         OWMServiceManager.sharedInstance.getCitiesFor(searchText: "blahblahblah", completion: { error, response in
             
             if let err = error {

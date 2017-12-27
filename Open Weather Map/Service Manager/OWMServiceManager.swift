@@ -21,6 +21,7 @@ class OWMServiceManager: NSObject {
 
     func getCitiesFor(searchText : String, completion:@escaping (Error?, OWMCityListModel?) ->Void) {
         
+        //Comment : Google's Places Autocomplete API used becasue Open Weather's city list did not contain state information for cities with same name - restricted city search to US only - API restriction to give 5 results only at a time
         var err:Error?
 
         guard let url = OWMUtilities.citySearchURLFor(text: searchText) else {
@@ -78,6 +79,8 @@ class OWMServiceManager: NSObject {
     
     func getWeatherFor(city : String, completion:@escaping (Error?, OWMWeatherModel?) ->Void) {
         
+        //Comment : Open Weather's city list did not contain state information for cities with same name - so results are not accurate - this can be handled properly if a mapping for id is established in http://bulk.openweathermap.org/sample/city.list.json.gz
+
         var err:Error?
         
         guard let url = OWMUtilities.openWeatherURLFor(city: city) else {
@@ -135,6 +138,7 @@ class OWMServiceManager: NSObject {
     
     func getImageDataFor(icon : String, completion:@escaping (Error?, Data?) ->Void) {
         
+        //Comment : Images can be cached using cachae managers like Kingfisher - so same images don't get downloaded again and picked from cache
         var err:Error?
         
         guard let url = OWMUtilities.iconURLFor(code: icon) else {

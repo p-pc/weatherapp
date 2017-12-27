@@ -16,9 +16,4 @@ pod 'Alamofire' , '4.5.1'
     # Pods for testing
   end
 
-  target 'Open Weather MapUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end
