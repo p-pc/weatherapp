@@ -132,5 +132,49 @@ class OWMServiceManager: NSObject {
         })
         
     }
+    
+    func getImageDataFor(icon : String, completion:@escaping (Error?, Data?) ->Void) {
+        
+        var err:Error?
+        
+        guard let url = OWMUtilities.iconURLFor(code: icon) else {
+            
+            err = NSError(domain:"", code:-1, userInfo:["localizedDescription":"Invalid URL"])
+            
+            completion(err,nil)
+            
+            return
+            
+        }
+        
+        Alamofire.request(url).responseData(completionHandler: { response in
+            
+            switch response.result {
+                
+            case .success:
+                
+                guard response.data != nil else {
+                    
+                    err = NSError(domain:"", code:-1, userInfo:["localizedDescription":"Invalid Data"])
+                    
+                    completion(err,nil)
+                    
+                    return
+                    
+                }
+                
+                completion(nil,response.data)
+                
+            case .failure(let errVal):
+                
+                err = NSError(domain:"", code:-1, userInfo:["localizedDescription":errVal.localizedDescription])
+                
+                completion(errVal,nil)
+            }
+            
+        })
+        
+    }
+
 
 }

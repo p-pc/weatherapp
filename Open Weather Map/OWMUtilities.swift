@@ -40,6 +40,20 @@ class OWMUtilities: NSObject {
         
     }
 
+    class func iconURLFor(code : String) -> URL? {
+        
+        guard let urlStr = OWMUtilities.getStringFor(key: "IconURL") else {return nil}
+        
+        let encodedStr = code.replacingOccurrences(of: " ", with: "%20", options: [], range: nil)
+        
+        let strVal = String(format:urlStr, encodedStr)
+        
+        guard let urlVal = URL(string:strVal) else {return nil}
+        
+        return urlVal
+        
+    }
+
     class func getStringFor(key:String) -> String? {
         
         guard let path = Bundle.main.path(forResource: "Environment", ofType: "plist") else {return nil}
@@ -53,6 +67,7 @@ class OWMUtilities: NSObject {
         }
 
     }
+    
 }
 
 struct OWMConstants {

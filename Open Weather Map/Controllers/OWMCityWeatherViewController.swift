@@ -165,6 +165,8 @@ class OWMCityWeatherViewController: UIViewController {
                 if let time = data.sys_sunset_time {
                     self.lblSunsetTime.text = "Sunset : \(time)"
                 }
+                
+                self.updateImageWith(icon : data.weather_icon)
 
             }
             
@@ -178,6 +180,48 @@ class OWMCityWeatherViewController: UIViewController {
             self.lblSunriseTime.text = "Sunrise : NA"
             self.lblSunsetTime.text = "Sunset : NA"
         }
+        
+    }
+    
+    func updateImageWith(icon : String) {
+        
+        OWMServiceManager.sharedInstance.getImageDataFor(icon: icon, completion: { error, data in
+            
+            func onSuccess(response: Data) {
+                
+                DispatchQueue.main.async {
+                    
+                    guard let img = UIImage(data: response) else {return}
+                    
+                    self.imgViewIcon.image = img
+                    
+                }
+            }
+
+            func onFailure(error: Error) {
+                
+                //do nothing - leave the default image
+            }
+
+            if let err = error {
+                
+                onFailure(error: err)
+                
+            }
+            else {
+                
+                guard let respData = data else {
+                    
+                    onFailure(error: NSError(domain:"", code:-1, userInfo:["localizedDescription":"Something went wrong"]))
+                    
+                    return
+                }
+                
+                onSuccess(response: respData)
+            }
+
+            
+        })
         
     }
     
