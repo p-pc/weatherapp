@@ -10,6 +10,16 @@ import UIKit
 
 class OWMCityWeatherViewController: UIViewController {
 
+    
+    @IBOutlet weak var imgViewIcon: UIImageView!
+    @IBOutlet weak var lblWeatherMain: UILabel!
+    @IBOutlet weak var lblMainTemp: UILabel!
+    @IBOutlet weak var lblmainTempMin: UILabel!
+    @IBOutlet weak var lblmainTempMax: UILabel!
+    @IBOutlet weak var lblWindSpeed: UILabel!
+    @IBOutlet weak var lblSunriseTime: UILabel!
+    @IBOutlet weak var lblSunsetTime: UILabel!
+    
     var cityModel : OWMCityItemModel?
     
     var weatherData : OWMWeatherModel?
@@ -17,6 +27,8 @@ class OWMCityWeatherViewController: UIViewController {
     override func viewDidLoad() {
       
         super.viewDidLoad()
+        
+        self.refreshData()
 
     }
 
@@ -50,8 +62,16 @@ class OWMCityWeatherViewController: UIViewController {
             
             let alert = UIAlertController(title: "", message: "Please connect to internet", preferredStyle: UIAlertControllerStyle.alert)
             
-            let alertActionOK = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            
+            let alertActionOK = UIAlertAction(title: "OK", style: .cancel, handler: { (UIAlertAction) -> Void in
+                
+                DispatchQueue.main.async {
+                
+                    self.navigationController?.popViewController(animated: true)
+                    
+                }
+                
+            })
+
             alert.addAction(alertActionOK)
             
             DispatchQueue.main.async {
@@ -87,7 +107,11 @@ class OWMCityWeatherViewController: UIViewController {
                 
                 let alertActionOK = UIAlertAction(title: "OK", style: .cancel, handler: { (UIAlertAction) -> Void in
                     
-                    self.navigationController?.popViewController(animated: true)
+                    DispatchQueue.main.async {
+                        
+                        self.navigationController?.popViewController(animated: true)
+                        
+                    }
                     
                 })
                 
@@ -129,12 +153,30 @@ class OWMCityWeatherViewController: UIViewController {
         if let data = self.weatherData {
             //set values to UI components
             DispatchQueue.main.async {
-                print("data : \(data)")
+                
+                self.lblWeatherMain.text = "Weather : \(data.weather_main)"
+                self.lblMainTemp.text = "Temp : \(data.main_temp)"
+                self.lblmainTempMin.text = "Min. Temp : \(data.main_temp_min)"
+                self.lblmainTempMax.text = "Max. Temp : \(data.main_temp_max)"
+                self.lblWindSpeed.text = "Wind : \(data.wind_speed)"
+                if let time = data.sys_sunrise_time {
+                    self.lblSunriseTime.text = "Sunrise : \(time)"
+                }
+                if let time = data.sys_sunset_time {
+                    self.lblSunsetTime.text = "Sunset : \(time)"
+                }
+
             }
             
         }
         else {
-            //clear UI - pop to previous screen in alert
+            self.lblWeatherMain.text = "Weather : NA"
+            self.lblMainTemp.text = "Temp : NA"
+            self.lblmainTempMin.text = "Min. Temp : NA"
+            self.lblmainTempMax.text = "Max. Temp : NA"
+            self.lblWindSpeed.text = "Wind : NA"
+            self.lblSunriseTime.text = "Sunrise : NA"
+            self.lblSunsetTime.text = "Sunset : NA"
         }
         
     }
