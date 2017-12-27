@@ -64,6 +64,23 @@ extension OWMSelectCityViewController : UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchTextRaw: String) {
         
+        if !Reachability.forInternetConnection().isReachable() {
+            
+            let alert = UIAlertController(title: "", message: "Please connect to internet", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let alertActionOK = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            
+            alert.addAction(alertActionOK)
+
+            DispatchQueue.main.async {
+                
+                self.present(alert, animated: true, completion: nil)
+                
+                return
+                
+            }
+
+        }
         
         let charSet : NSMutableCharacterSet = NSMutableCharacterSet()
         charSet.formUnion(with: CharacterSet.uppercaseLetters)
@@ -105,7 +122,11 @@ extension OWMSelectCityViewController : UISearchBarDelegate {
                 
                 self.cityResults = OWMCityListModel()
                 
-                let alert = UIAlertController(title: nil, message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+
+                let alertActionOK = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                
+                alert.addAction(alertActionOK)
 
                 DispatchQueue.main.async {
 
@@ -141,8 +162,6 @@ extension OWMSelectCityViewController : UISearchBarDelegate {
 extension OWMSelectCityViewController : UITableViewDataSource, UITableViewDelegate {
  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        print("self.cityResults.cityList.count : \(self.cityResults.cityList.count)")
         
         return self.cityResults.cityList.count
         

@@ -4,5 +4,7 @@
 <dict>
 	<key>CitySearchURL</key>
 	<string>https://maps.googleapis.com/maps/api/place/autocomplete/json?key=%@&amp;input=%@&amp;components=country:us&amp;types=(cities)</string>
+	<key>OpenWeatherURL</key>
+	<string>http://api.openweathermap.org/data/2.5/weather?q=%@&amp;mode=json&amp;units=metric&amp;cnt=16&amp;APPID=%@</string>
 </dict>
 </plist>

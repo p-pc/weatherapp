@@ -26,6 +26,20 @@ class OWMUtilities: NSObject {
         
     }
     
+    class func openWeatherURLFor(city : String) -> URL? {
+        
+        guard let urlStr = OWMUtilities.getStringFor(key: "OpenWeatherURL") else {return nil}
+        
+        let encodedStr = city.replacingOccurrences(of: " ", with: "%20", options: [], range: nil)
+        
+        let strVal = String(format:urlStr, encodedStr, OWMConstants.openWeatherAPPID)
+        
+        guard let urlVal = URL(string:strVal) else {return nil}
+        
+        return urlVal
+        
+    }
+
     class func getStringFor(key:String) -> String? {
         
         guard let path = Bundle.main.path(forResource: "Environment", ofType: "plist") else {return nil}
@@ -44,5 +58,7 @@ class OWMUtilities: NSObject {
 struct OWMConstants {
     
     static let citySearchAPIKey = "AIzaSyBquitvUuulCMe2vKVPWYLeDlGVL5i7q5s"
+    
+    static let openWeatherAPPID = "ef54b73db906dde8e7c21c8231865944"
     
 }

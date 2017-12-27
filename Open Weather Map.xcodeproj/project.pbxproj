@@ -35,9 +35,12 @@
 		EFE3E46F1FF3625B00222F31 /* OWMCityWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3E46E1FF3625B00222F31 /* OWMCityWeatherViewController.swift */; };
 		EFE3E4701FF3625B00222F31 /* OWMCityWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3E46E1FF3625B00222F31 /* OWMCityWeatherViewController.swift */; };
 		EFE3E4711FF3625B00222F31 /* OWMCityWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3E46E1FF3625B00222F31 /* OWMCityWeatherViewController.swift */; };
-		EFE3E4741FF386B200222F31 /* Reachability in Resources */ = {isa = PBXBuildFile; fileRef = EFE3E4731FF386B100222F31 /* Reachability */; };
-		EFE3E4751FF386B200222F31 /* Reachability in Resources */ = {isa = PBXBuildFile; fileRef = EFE3E4731FF386B100222F31 /* Reachability */; };
-		EFE3E4761FF386B200222F31 /* Reachability in Resources */ = {isa = PBXBuildFile; fileRef = EFE3E4731FF386B100222F31 /* Reachability */; };
+		EFE3E4801FF3895D00222F31 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE3E47F1FF3895C00222F31 /* Reachability.m */; };
+		EFE3E4811FF3895D00222F31 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE3E47F1FF3895C00222F31 /* Reachability.m */; };
+		EFE3E4821FF3895D00222F31 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE3E47F1FF3895C00222F31 /* Reachability.m */; };
+		EFE3E4851FF38C7900222F31 /* OWMWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3E4841FF38C7900222F31 /* OWMWeatherModel.swift */; };
+		EFE3E4861FF38C7900222F31 /* OWMWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3E4841FF38C7900222F31 /* OWMWeatherModel.swift */; };
+		EFE3E4871FF38C7900222F31 /* OWMWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3E4841FF38C7900222F31 /* OWMWeatherModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +88,12 @@
 		EFE3E4621FF34BE000222F31 /* OWMUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWMUtilities.swift; sourceTree = "<group>"; };
 		EFE3E46A1FF353F600222F31 /* Environment.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Environment.plist; sourceTree = "<group>"; };
 		EFE3E46E1FF3625B00222F31 /* OWMCityWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWMCityWeatherViewController.swift; sourceTree = "<group>"; };
-		EFE3E4731FF386B100222F31 /* Reachability */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Reachability; sourceTree = "<group>"; };
+		EFE3E47C1FF3895B00222F31 /* Open Weather MapTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Open Weather MapTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		EFE3E47D1FF3895B00222F31 /* Open Weather MapUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Open Weather MapUITests-Bridging-Header.h"; sourceTree = "<group>"; };
+		EFE3E47E1FF3895C00222F31 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Reachability/Reachability.h; sourceTree = "<group>"; };
+		EFE3E47F1FF3895C00222F31 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Reachability/Reachability.m; sourceTree = "<group>"; };
+		EFE3E4831FF38A1B00222F31 /* Open-Weather-Map-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Open-Weather-Map-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		EFE3E4841FF38C7900222F31 /* OWMWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWMWeatherModel.swift; sourceTree = "<group>"; };
 		F428DF17D41749679AD91F5B /* Pods_Open_Weather_MapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Open_Weather_MapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -228,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				EFE3E45E1FF347EA00222F31 /* OWMCityListModel.swift */,
+				EFE3E4841FF38C7900222F31 /* OWMWeatherModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -235,7 +244,11 @@
 		EFE3E4721FF3869F00222F31 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				EFE3E4731FF386B100222F31 /* Reachability */,
+				EFE3E4831FF38A1B00222F31 /* Open-Weather-Map-Bridging-Header.h */,
+				EFE3E47E1FF3895C00222F31 /* Reachability.h */,
+				EFE3E47F1FF3895C00222F31 /* Reachability.m */,
+				EFE3E47C1FF3895B00222F31 /* Open Weather MapTests-Bridging-Header.h */,
+				EFE3E47D1FF3895B00222F31 /* Open Weather MapUITests-Bridging-Header.h */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -321,11 +334,13 @@
 					};
 					EFE3E4311FF314F500222F31 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = EFE3E41B1FF314F500222F31;
 					};
 					EFE3E43C1FF314F500222F31 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = EFE3E41B1FF314F500222F31;
 					};
@@ -357,7 +372,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFE3E4511FF3173400222F31 /* Icon.png in Resources */,
-				EFE3E4741FF386B200222F31 /* Reachability in Resources */,
 				EFE3E42C1FF314F500222F31 /* LaunchScreen.storyboard in Resources */,
 				EFE3E4291FF314F500222F31 /* Assets.xcassets in Resources */,
 				EFE3E4271FF314F500222F31 /* Main.storyboard in Resources */,
@@ -370,7 +384,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFE3E46C1FF353F600222F31 /* Environment.plist in Resources */,
-				EFE3E4751FF386B200222F31 /* Reachability in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,7 +392,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFE3E46D1FF353F600222F31 /* Environment.plist in Resources */,
-				EFE3E4761FF386B200222F31 /* Reachability in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +555,8 @@
 				EFE3E46F1FF3625B00222F31 /* OWMCityWeatherViewController.swift in Sources */,
 				EFE3E4591FF3275900222F31 /* OWMServiceManager.swift in Sources */,
 				EFE3E4631FF34BE000222F31 /* OWMUtilities.swift in Sources */,
+				EFE3E4801FF3895D00222F31 /* Reachability.m in Sources */,
+				EFE3E4851FF38C7900222F31 /* OWMWeatherModel.swift in Sources */,
 				EFE3E4201FF314F500222F31 /* AppDelegate.swift in Sources */,
 				EFE3E45F1FF347EA00222F31 /* OWMCityListModel.swift in Sources */,
 				EFE3E4541FF3191800222F31 /* OWMSelectCityViewController.swift in Sources */,
@@ -556,6 +570,8 @@
 				EFE3E4701FF3625B00222F31 /* OWMCityWeatherViewController.swift in Sources */,
 				EFE3E45A1FF3275900222F31 /* OWMServiceManager.swift in Sources */,
 				EFE3E4641FF34BE000222F31 /* OWMUtilities.swift in Sources */,
+				EFE3E4811FF3895D00222F31 /* Reachability.m in Sources */,
+				EFE3E4861FF38C7900222F31 /* OWMWeatherModel.swift in Sources */,
 				EFE3E4371FF314F500222F31 /* Open_Weather_MapTests.swift in Sources */,
 				EFE3E4601FF347EA00222F31 /* OWMCityListModel.swift in Sources */,
 				EFE3E4551FF3191800222F31 /* OWMSelectCityViewController.swift in Sources */,
@@ -569,6 +585,8 @@
 				EFE3E4711FF3625B00222F31 /* OWMCityWeatherViewController.swift in Sources */,
 				EFE3E45B1FF3275900222F31 /* OWMServiceManager.swift in Sources */,
 				EFE3E4651FF34BE000222F31 /* OWMUtilities.swift in Sources */,
+				EFE3E4821FF3895D00222F31 /* Reachability.m in Sources */,
+				EFE3E4871FF38C7900222F31 /* OWMWeatherModel.swift in Sources */,
 				EFE3E4421FF314F500222F31 /* Open_Weather_MapUITests.swift in Sources */,
 				EFE3E4611FF347EA00222F31 /* OWMCityListModel.swift in Sources */,
 				EFE3E4561FF3191800222F31 /* OWMSelectCityViewController.swift in Sources */,
@@ -728,6 +746,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.parthi.Open-Weather-Map";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Open-Weather-Map-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -744,6 +763,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.parthi.Open-Weather-Map";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Open-Weather-Map-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -755,12 +775,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HX7S377P6E;
 				INFOPLIST_FILE = "Open Weather MapTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.parthi.Open-Weather-MapTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Open Weather Map/Libs/Open Weather MapTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Open Weather Map.app/Open Weather Map";
@@ -773,12 +796,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HX7S377P6E;
 				INFOPLIST_FILE = "Open Weather MapTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.parthi.Open-Weather-MapTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Open Weather Map/Libs/Open Weather MapTests-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Open Weather Map.app/Open Weather Map";
@@ -790,12 +815,15 @@
 			baseConfigurationReference = 1CB69D1694E65DE4F6B2DFE4 /* Pods-Open Weather MapUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HX7S377P6E;
 				INFOPLIST_FILE = "Open Weather MapUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.parthi.Open-Weather-MapUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Open Weather Map/Libs/Open Weather MapUITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "Open Weather Map";
@@ -807,12 +835,14 @@
 			baseConfigurationReference = D7D67B770DEB104DD3DCC071 /* Pods-Open Weather MapUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HX7S377P6E;
 				INFOPLIST_FILE = "Open Weather MapUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.parthi.Open-Weather-MapUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Open Weather Map/Libs/Open Weather MapUITests-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "Open Weather Map";

@@ -35,10 +35,6 @@ class OWMServiceManager: NSObject {
         
         Alamofire.request(url).responseJSON(completionHandler: { response in
             
-            print("response : \(response.result)")
-            print("response : \(String(describing: response.response))")
-            
-            
             switch response.result {
                 
             case .success:
@@ -78,8 +74,63 @@ class OWMServiceManager: NSObject {
             
         })
         
+    }
+    
+    func getWeatherFor(city : String, completion:@escaping (Error?, OWMWeatherModel?) ->Void) {
         
+        var err:Error?
         
+        guard let url = OWMUtilities.openWeatherURLFor(city: city) else {
+            
+            err = NSError(domain:"", code:-1, userInfo:["localizedDescription":"Invalid URL"])
+            
+            completion(err,nil)
+            
+            return
+            
+        }
+        
+        Alamofire.request(url).responseJSON(completionHandler: { response in
+            
+            switch response.result {
+                
+            case .success:
+                
+                guard response.data != nil else {
+                    
+                    err = NSError(domain:"", code:-1, userInfo:["localizedDescription":"Invalid Data"])
+                    
+                    completion(err,nil)
+                    
+                    return
+                    
+                }
+                
+                do {
+                    guard let parsedObject : NSDictionary = try JSONSerialization.jsonObject(with: response.data!, options: JSONSerialization.ReadingOptions()) as? NSDictionary else {return}
+                    
+                    let model = OWMWeatherModel(jsonData: parsedObject)
+                    
+                    completion(nil, model)
+                    
+                }
+                catch {
+                    
+                    err = NSError(domain:"", code:-1, userInfo:["localizedDescription":"Invalid JSON"])
+                    
+                    completion(err,nil)
+                    
+                }
+                
+            case .failure(let errVal):
+                
+                err = NSError(domain:"", code:-1, userInfo:["localizedDescription":errVal.localizedDescription])
+                
+                completion(errVal,nil)
+            }
+            
+        })
         
     }
+
 }
