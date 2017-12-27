@@ -16,6 +16,8 @@ class OWMSelectCityViewController: UIViewController {
     
     var cityResults = OWMCityListModel()
     
+    var selectedCity : OWMCityItemModel?
+        
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -27,7 +29,7 @@ class OWMSelectCityViewController: UIViewController {
         
         super.viewDidAppear(animated)
         
-        self.title = "Select City"
+        self.title = "Cities"
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,15 +43,20 @@ class OWMSelectCityViewController: UIViewController {
         
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+
+        guard self.selectedCity != nil else {return}
+        
+        if segue.identifier == "OWMCityWeatherViewControllerSegue" {
+            
+            let cityWeatherVC = segue.destination as! OWMCityWeatherViewController
+            
+            cityWeatherVC.cityModel = self.selectedCity
+        }
+        
+        super.prepare(for: segue, sender: sender)
+
     }
-    */
 
 }
 
@@ -152,5 +159,13 @@ extension OWMSelectCityViewController : UITableViewDataSource, UITableViewDelega
         return cell
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cityItem = self.cityResults.cityList[indexPath.row]
+
+        self.selectedCity = cityItem
+        
+        self.performSegue(withIdentifier: "OWMCityWeatherViewControllerSegue", sender: nil)
+    }
 
 }

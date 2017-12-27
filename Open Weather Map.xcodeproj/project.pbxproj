@@ -32,6 +32,12 @@
 		EFE3E46B1FF353F600222F31 /* Environment.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFE3E46A1FF353F600222F31 /* Environment.plist */; };
 		EFE3E46C1FF353F600222F31 /* Environment.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFE3E46A1FF353F600222F31 /* Environment.plist */; };
 		EFE3E46D1FF353F600222F31 /* Environment.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFE3E46A1FF353F600222F31 /* Environment.plist */; };
+		EFE3E46F1FF3625B00222F31 /* OWMCityWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3E46E1FF3625B00222F31 /* OWMCityWeatherViewController.swift */; };
+		EFE3E4701FF3625B00222F31 /* OWMCityWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3E46E1FF3625B00222F31 /* OWMCityWeatherViewController.swift */; };
+		EFE3E4711FF3625B00222F31 /* OWMCityWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3E46E1FF3625B00222F31 /* OWMCityWeatherViewController.swift */; };
+		EFE3E4741FF386B200222F31 /* Reachability in Resources */ = {isa = PBXBuildFile; fileRef = EFE3E4731FF386B100222F31 /* Reachability */; };
+		EFE3E4751FF386B200222F31 /* Reachability in Resources */ = {isa = PBXBuildFile; fileRef = EFE3E4731FF386B100222F31 /* Reachability */; };
+		EFE3E4761FF386B200222F31 /* Reachability in Resources */ = {isa = PBXBuildFile; fileRef = EFE3E4731FF386B100222F31 /* Reachability */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +84,8 @@
 		EFE3E45E1FF347EA00222F31 /* OWMCityListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWMCityListModel.swift; sourceTree = "<group>"; };
 		EFE3E4621FF34BE000222F31 /* OWMUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWMUtilities.swift; sourceTree = "<group>"; };
 		EFE3E46A1FF353F600222F31 /* Environment.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Environment.plist; sourceTree = "<group>"; };
+		EFE3E46E1FF3625B00222F31 /* OWMCityWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWMCityWeatherViewController.swift; sourceTree = "<group>"; };
+		EFE3E4731FF386B100222F31 /* Reachability */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Reachability; sourceTree = "<group>"; };
 		F428DF17D41749679AD91F5B /* Pods_Open_Weather_MapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Open_Weather_MapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -157,6 +165,7 @@
 		EFE3E41E1FF314F500222F31 /* Open Weather Map */ = {
 			isa = PBXGroup;
 			children = (
+				EFE3E4721FF3869F00222F31 /* Libs */,
 				EFE3E45D1FF347CC00222F31 /* Models */,
 				EFE3E4571FF3273F00222F31 /* Service Manager */,
 				EFE3E4521FF318DB00222F31 /* Controllers */,
@@ -202,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				EFE3E4531FF3191800222F31 /* OWMSelectCityViewController.swift */,
+				EFE3E46E1FF3625B00222F31 /* OWMCityWeatherViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -220,6 +230,14 @@
 				EFE3E45E1FF347EA00222F31 /* OWMCityListModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		EFE3E4721FF3869F00222F31 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				EFE3E4731FF386B100222F31 /* Reachability */,
+			);
+			path = Libs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFE3E4511FF3173400222F31 /* Icon.png in Resources */,
+				EFE3E4741FF386B200222F31 /* Reachability in Resources */,
 				EFE3E42C1FF314F500222F31 /* LaunchScreen.storyboard in Resources */,
 				EFE3E4291FF314F500222F31 /* Assets.xcassets in Resources */,
 				EFE3E4271FF314F500222F31 /* Main.storyboard in Resources */,
@@ -351,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFE3E46C1FF353F600222F31 /* Environment.plist in Resources */,
+				EFE3E4751FF386B200222F31 /* Reachability in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFE3E46D1FF353F600222F31 /* Environment.plist in Resources */,
+				EFE3E4761FF386B200222F31 /* Reachability in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +540,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFE3E46F1FF3625B00222F31 /* OWMCityWeatherViewController.swift in Sources */,
 				EFE3E4591FF3275900222F31 /* OWMServiceManager.swift in Sources */,
 				EFE3E4631FF34BE000222F31 /* OWMUtilities.swift in Sources */,
 				EFE3E4201FF314F500222F31 /* AppDelegate.swift in Sources */,
@@ -531,6 +553,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFE3E4701FF3625B00222F31 /* OWMCityWeatherViewController.swift in Sources */,
 				EFE3E45A1FF3275900222F31 /* OWMServiceManager.swift in Sources */,
 				EFE3E4641FF34BE000222F31 /* OWMUtilities.swift in Sources */,
 				EFE3E4371FF314F500222F31 /* Open_Weather_MapTests.swift in Sources */,
@@ -543,6 +566,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFE3E4711FF3625B00222F31 /* OWMCityWeatherViewController.swift in Sources */,
 				EFE3E45B1FF3275900222F31 /* OWMServiceManager.swift in Sources */,
 				EFE3E4651FF34BE000222F31 /* OWMUtilities.swift in Sources */,
 				EFE3E4421FF314F500222F31 /* Open_Weather_MapUITests.swift in Sources */,
