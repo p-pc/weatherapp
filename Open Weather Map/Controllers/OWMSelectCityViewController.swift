@@ -22,7 +22,8 @@ class OWMSelectCityViewController: UIViewController {
         
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.loadLastCity()
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -30,11 +31,36 @@ class OWMSelectCityViewController: UIViewController {
         super.viewDidAppear(animated)
         
         self.title = "Cities"
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func loadLastCity() {
+        
+        let recents = OWMUtilities.getRecentCitiesList()
+        
+        if recents.cityList.count > 0 {
+            print("recents.cityList : \(recents.cityList.count)")
+            
+            self.cityResults = recents
+            
+            DispatchQueue.main.async {
+                
+                self.refreshData()
+                
+                self.tableView(self.cityListTableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+
+            }
+            
+        }
+        else {
+            print("recents.cityList : empty")
+        }
+
     }
     
     func refreshData() {
@@ -105,8 +131,12 @@ extension OWMSelectCityViewController : UISearchBarDelegate {
             
         }
         
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
         OWMServiceManager.sharedInstance.getCitiesFor(searchText: searchText, completion: { error,response in
             
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+
             func onSuccess(response: OWMCityListModel) {
                 
                 self.cityResults = response
@@ -183,6 +213,8 @@ extension OWMSelectCityViewController : UITableViewDataSource, UITableViewDelega
         let cityItem = self.cityResults.cityList[indexPath.row]
 
         self.selectedCity = cityItem
+        
+        OWMUtilities.updateRecentCitiesListWith(city: cityItem)
         
         self.performSegue(withIdentifier: "OWMCityWeatherViewControllerSegue", sender: nil)
     }

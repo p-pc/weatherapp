@@ -86,7 +86,11 @@ class OWMCityWeatherViewController: UIViewController {
         
         guard let cityName = self.cityModel?.cityName else {return}
         
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
         OWMServiceManager.sharedInstance.getWeatherFor(city: cityName, completion: { error,response in
+            
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             
             func onSuccess(response: OWMWeatherModel) {
                 
@@ -185,8 +189,12 @@ class OWMCityWeatherViewController: UIViewController {
     
     func updateImageWith(icon : String) {
         
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
         OWMServiceManager.sharedInstance.getImageDataFor(icon: icon, completion: { error, data in
             
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+
             func onSuccess(response: Data) {
                 
                 DispatchQueue.main.async {
