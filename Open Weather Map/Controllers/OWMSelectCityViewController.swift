@@ -44,7 +44,6 @@ class OWMSelectCityViewController: UIViewController {
         let recents = OWMUtilities.getRecentCitiesList()
         
         if recents.cityList.count > 0 {
-            print("recents.cityList : \(recents.cityList.count)")
             
             self.cityResults = recents
             
@@ -58,7 +57,7 @@ class OWMSelectCityViewController: UIViewController {
             
         }
         else {
-            print("recents.cityList : empty")
+            //do nothing
         }
 
     }

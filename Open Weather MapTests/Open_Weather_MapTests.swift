@@ -25,7 +25,58 @@ class Open_Weather_MapTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+
+    func testURL() {
+        
+        if let _ = OWMUtilities.citySearchURLFor(text: "new") {
+            XCTAssert(true, "citySearchURLFor works fine for new")
+        }
+        else {
+            XCTAssert(false, "citySearchURLFor works fine for new")
+        }
+
+    }
     
+    func testNetwork() {
+        
+        if Reachability.forInternetConnection().isReachable() {
+            XCTAssert(true, "internet available")
+        }
+        else {
+            XCTAssert(false, "internet needed for testing")
+        }
+        
+    }
+    
+    func testAPI() {
+        
+        //Comment : new - succeeds ; blahblahblah - fails -- we could setup a test database and iterate through multiple search texts here and log all results
+        //Comment : for time being - only Unit tests are added - UI tests are not added
+        OWMServiceManager.sharedInstance.getCitiesFor(searchText: "blahblahblah", completion: { error, response in
+            
+            if let err = error {
+                XCTAssert(false, err.localizedDescription)
+            }
+            else {
+                
+                guard let respData = response else {
+                    
+                    XCTAssert(false, "getCitiesFor blahblahblah failed - response nil")
+                    
+                    return
+                }
+                
+                if respData.cityList.count > 0 {
+                    XCTAssert(true, "getCitiesFor blahblahblah exists - success")
+                }
+                else {
+                    XCTAssert(false, "getCitiesFor blahblahblah des not exist - fail")
+                }
+            }
+        })
+        
+    }
+
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

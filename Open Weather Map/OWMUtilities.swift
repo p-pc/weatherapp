@@ -88,8 +88,6 @@ class OWMUtilities: NSObject {
             
             if let recentCities = NSKeyedUnarchiver.unarchiveObject(with: data) as? OWMCityListModel {
                 
-                print("recentCities : \(recentCities)")
-                
                 for anItem in recentCities.cityList {
                     
                     if anItem.cityDisplayName == city.cityDisplayName {
@@ -129,8 +127,6 @@ class OWMUtilities: NSObject {
         if let data = defaults.object(forKey: "recentCities") as? Data {
             
             if let recentCities = NSKeyedUnarchiver.unarchiveObject(with: data) as? OWMCityListModel {
-                
-                print("recentCities : \(recentCities)")
                 
                 retVal = recentCities
                 
