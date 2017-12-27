@@ -10,7 +10,6 @@ import UIKit
 
 class OWMCityWeatherViewController: UIViewController {
 
-    
     @IBOutlet weak var imgViewIcon: UIImageView!
     @IBOutlet weak var lblWeatherMain: UILabel!
     @IBOutlet weak var lblMainTemp: UILabel!
@@ -156,7 +155,7 @@ class OWMCityWeatherViewController: UIViewController {
     
     func refreshData() {
         
-        //Comment : very crude handling of UI refresh - can be made as a scrollable view with more presentable data
+        //Comment : very crude handling of UI refresh - can be made as a scrollable view with more presentable data - proper unit conversions can be added for metric/imperial & C/F scales
         if let data = self.weatherData {
             
             //Comment : handle UI refreshes in main thread to ensure proper UI updates
